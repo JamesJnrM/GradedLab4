@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     },
   });
     
-    const total = cart.reduce((balance, item) => balance + item.price, 0);
+    const total = cart.reduce((balance, item) => balance + item.price, 0).toFixed(2);
   return (
     <>
       <ImageBackground style={{ flex: 1, backgroundColor:back }}>

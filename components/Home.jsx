@@ -22,7 +22,7 @@ export default function Home({navigation}){
                         <View style={{width: '50%', marginTop: '40%'}}>
                             <TextInput placeholder="Enter your name" placeholderTextColor={'gray'} style={styles.text} value={name} onChangeText={setName}/>
                             <TextInput placeholder="Enter email" placeholderTextColor={'gray'} style={styles.text} value={email} onChangeText={setEmail}/>
-                            <TextInput placeholder="Enter phone" placeholderTextColor={'gray'} style={styles.text} value={phone} onChangeText={setPhone}/>
+                            <TextInput placeholder="Enter phone" placeholderTextColor={'gray'} style={styles.text} value={phone} onChangeText={setPhone} keyboardType="numeric"/>
                             
                             <Pressable style={styles.button} onPress={()=> {if(name&&email&&phone)
                                 {navigation.navigate('Address')}

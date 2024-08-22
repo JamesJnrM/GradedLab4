@@ -20,10 +20,10 @@ export default function Payment({navigation}){
                         
                         <Text style={{fontSize: '28%', color: 'black'}}>Enter Payment Details</Text>
                         <View style={{width: '50%', marginTop: '40%'}}>
-                            <TextInput placeholder="Credit card number [16 digits]" placeholderTextColor={'gray'} style={styles.text} value={number} onChangeText={setNumber}/>
+                            <TextInput placeholder="Credit card number [16 digits]" placeholderTextColor={'gray'} style={styles.text} value={number} onChangeText={setNumber} keyboardType="numeric"/>
                             <TextInput placeholder="Expiration date[year/month]" placeholderTextColor={'gray'} style={styles.text} value={expiry} onChangeText={setExpiry}/>
-                            <TextInput placeholder="Enter CVV [3 digits]" placeholderTextColor={'gray'} style={styles.text} value={cvv} onChangeText={setCvv}/>
-                            <Pressable style={styles.button} onPress={()=> {if(number.length===5&&cvv.length===3&&expiry.length>5)
+                            <TextInput placeholder="Enter CVV [3 digits]" placeholderTextColor={'gray'} style={styles.text} value={cvv} onChangeText={setCvv} keyboardType="numeric"/>
+                            <Pressable style={styles.button} onPress={()=> {if(number.length===16&&cvv.length===3&&expiry.length>5)
                                 {navigation.navigate('Tabs')}
                                 else 
                                 alert('Please fill in all required details!')

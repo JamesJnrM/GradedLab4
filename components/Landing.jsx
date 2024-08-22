@@ -9,7 +9,7 @@ export default function Landing({navigation}){
                         <Text style={{fontSize: '40%', marginLeft: '40%'}}>Scooters Food</Text>
                         <Text style={{fontSize: '40%', marginLeft: '65%'}}>Delivery</Text>
                     </View>
-                    <View style={{marginTop: '140%', marginLeft: '10%', }}>
+                    <View style={{marginTop: '100%', marginLeft: '10%', }}>
                         <Pressable style={{width: '50%',backgroundColor: '#FEEBE2', borderRadius: '30%'}} onPress={()=> navigation.navigate('Home')}>
                             <Text style={{fontSize: '25%', color: 'black', padding: '10%', textAlign: 'center'}}>Order Now</Text>
                         </Pressable>
