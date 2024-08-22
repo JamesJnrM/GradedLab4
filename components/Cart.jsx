@@ -14,7 +14,7 @@ import {
 import { DashboardContent } from "./DashboardContent";
 
 export default function Cart() {
-  const { name, surname, cart, address, city, back, font } = useContext(DashboardContent);
+  const { name, surname, cart, address, city, back, font , setCart} = useContext(DashboardContent);
   
 const styles = StyleSheet.create({
     text: {
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
             data={cart}
             renderItem={({ item }) => (
               <View>
-                <View style={{flexDirection: "row", margin: "5%", justifyContent: "space-evenly", alignItems: "center"}}>
+                <View style={{flexDirection: "row", margin: "5%", justifyContent: "space-evenly", alignItems: "center"}} key={item.id}>
                     <View>
                     <Image source={{ uri: item.image }} style={styles.meal} />
                     </View>
@@ -58,7 +58,10 @@ const styles = StyleSheet.create({
                     <Text style={{color: font}}>R{item.price}</Text>
                     </View>
                     <View>
-                        <Image source={require('../images/delete.png')} style={{width: 10, height: 20,color: font}}/>
+                        <Pressable onPress={()=> setCart(prevCart => prevCart.filter(Ritem => Ritem.id !== item.id))}>
+                            <Image source={require('../images/delete.png')} style={{width: 10, height: 20,color: font}}/>
+                        </Pressable>
+                        
                     </View>
                 </View>
                     
@@ -98,7 +101,7 @@ const styles = StyleSheet.create({
                 </View>
             </View>
             <View style={{alignItems: 'center', marginBottom: '2%'}}>
-                <Pressable style={{backgroundColor: '#FEEBE2', padding: '3%', borderRadius: '20%', width:'40%'}} onPress={()=> alert('Payment successful. Your order is on the way.')}>
+                <Pressable style={{backgroundColor: '#FEEBE2', padding: '3%', borderRadius: '20%', width:'40%'}} onPress={()=> {alert('Payment successful. Your order is on the way.'); setCart([])}}>
                     <Text style={{ textAlign:'center'}}>Proceed to Pay</Text>
                 </Pressable>
             </View>
